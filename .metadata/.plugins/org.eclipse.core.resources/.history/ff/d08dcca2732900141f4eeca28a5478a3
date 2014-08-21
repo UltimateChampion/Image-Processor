@@ -1,0 +1,47 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.*;
+
+import javax.imageio.*;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+public class IPPanel extends JPanel {
+
+	private JLabel f;
+	private JFileChooser jfca;
+	private FileNameExtensionFilter filter;
+	
+	private JButton fileOpener;
+	
+	public IPPanel() {
+		
+		BufferedImage img = null;
+		try {
+		    img = ImageIO.read(new File("pmario.jpg"));
+		} catch (IOException e) {
+			System.out.println("Failed to read image.");
+		}
+		
+		
+		jfca= new JFileChooser();
+		filter = new FileNameExtensionFilter("TXT files","jpg");
+		jfca.setFileFilter(filter);
+		
+		fileOpener = new JButton("Open Image File");
+		fileOpener.addActionListener(new OpenImageButton());
+		
+		
+		f = new JLabel(new ImageIcon(img));
+	}
+	
+	private class OpenImageButton implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
+}

@@ -1,0 +1,16 @@
+import javax.swing.*;
+
+public class Main {
+	
+	private JFileChooser jfca;
+	
+	public static void main(String[] args) {
+		
+		JFrame jf= new JFrame("Euler's Method Project");
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jf.add(new IPPanel());
+		jf.setVisible(true);
+		jf.pack();
+	}
+
+}

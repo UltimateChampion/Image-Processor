@@ -1,0 +1,56 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.*;
+
+import javax.imageio.*;
+import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+
+public class IPPanel extends JPanel {
+
+	private JLabel f;
+	private JFileChooser jfca;
+	private FileNameExtensionFilter filter;
+	
+	private JButton fileOpener;
+	
+	public IPPanel() {
+		
+		
+		jfca= new JFileChooser();
+		filter = new FileNameExtensionFilter("JPG Files","jpg");
+		jfca.setFileFilter(filter);
+		
+		fileOpener = new JButton("Open Image File");
+		fileOpener.addActionListener(new OpenImageButton());
+
+		add(fileOpener);
+		//f = new JLabel(new ImageIcon(img));
+	}
+	
+	private class OpenImageButton implements ActionListener {
+
+		private BufferedImage oibImage;
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			int returnVal = jfca.showOpenDialog(null);
+			File oibFile = null;
+			
+			if(returnVal == JFileChooser.APPROVE_OPTION) {
+				
+				oibFile = jfca.getSelectedFile();
+			}
+			
+			oibImage = null;
+			try {
+			    oibImage = ImageIO.read(oibFile);
+			} catch (IOException e2) {
+				System.out.println("Failed to read image.");
+			}
+			
+			f = new JLabel();
+		}
+	}
+}

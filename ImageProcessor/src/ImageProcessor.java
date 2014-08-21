@@ -6,7 +6,7 @@ import java.lang.Thread;
 import javax.imageio.ImageIO;
 
 
-public class ImageProcessor extends Thread {
+public class ImageProcessor  {
 	
 	public static void main(String[] args) {
 		
@@ -110,23 +110,8 @@ public class ImageProcessor extends Thread {
 		System.out.println(System.currentTimeMillis() - timeMetric);
 		
 		timeMetric = System.currentTimeMillis();
-		
-		/*ColorValue cv1 = new ColorValue();
-		int sum = 0;
-		int sum1 = 0;
-		int sum2 = 0;
-		for (int i = 0; i < x.length; i++) {
-			
-			sum += cv1.getGreen(x[i]);
-			sum1 += cv1.getRed(x[i]);
-			sum2 += cv1.getBlue(x[i]);
-		}
-		
 
-		System.out.println(sum);
 		
-		System.out.println(System.currentTimeMillis() - timeMetric);
-		*/
 		int[] out = new int[3];
 		out[0] = redTotal;
 		out[1] = blueTotal;
